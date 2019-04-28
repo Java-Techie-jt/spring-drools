@@ -1,0 +1,26 @@
+package KieRule;
+import com.javatechie.spring.drools.api.Order;
+
+rule "HDFC"
+
+when
+orderObject : Order(cardType=="HDFC" && price>10000);
+then
+orderObject.setDiscount(10);
+end;
+
+rule "ICICI"
+
+when
+orderObject : Order(cardType=="ICICI" && price>15000);
+then
+orderObject.setDiscount(8);
+end;
+
+rule "DBS"
+
+when
+orderObject : Order(cardType=="DBS" && price>15000);
+then
+orderObject.setDiscount(15);
+end;
